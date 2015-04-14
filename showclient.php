@@ -60,6 +60,38 @@
 											<th>خيارات</th>
 										</tr>
 									</thead>
+<<<<<<< HEAD
+
+									<tfoot>
+										<tr role="row">
+											<th>المسلسل</th>
+											<th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 189px;">اسم العميل</th>
+											<th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 277px;">العنوان</th>
+											<th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 248px;">ارقام الهواتف</th><th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 159px;">المديونيه عليه</th><th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 115px;">خيارات</th>
+										</tr>
+									</tfoot>
+									<tbody role="alert" aria-live="polite" aria-relevant="all"><tr class="odd">
+										<?php require 'connection.php'; 
+										$sql="SELECT * FROM clients";
+										$query=$conn->query($sql);
+										$i=1;
+										while ($result=$query->fetch(PDO::FETCH_ASSOC)) {
+											extract($result);
+											echo "<tr class='even'>
+											<td>$i</td>
+											<td class='sorting_1'>$client_name</td>
+											<td class=''>$phone</td>
+											<td class=''>$address</td>
+											<td class=''>$deserved</td>
+											<td class=''>
+											<a href='editclient.php?id=$id'><button class='btn btn-warning btn-sm'>تعديل</button></a></td>
+											</tr>";
+											$i++;
+										}
+
+
+										?>
+=======
 									<tbody>
 										
 <?php require 'connection.php'; 
@@ -80,6 +112,7 @@
 					$i++;
 				}
 				?>
+>>>>>>> 77c76a07d44f62c02506a9f0f5551a50bc857a9b
 									</tbody>
 
 								</table>
