@@ -9,7 +9,7 @@ if (isset($_POST['submit'])) {
 	$supplier_id_bill=$_POST['supplier'];
 	$date=date("Y-m-d");
 
-
+	$total_of_bill=0;
 	for ($i=0; $i <count($_POST['quantity']) ; $i++) { 
 		$product_id=$_POST['products'][$i];
 		$quantity_bill=htmlspecialchars($_POST['quantity'][$i]);
@@ -18,9 +18,9 @@ if (isset($_POST['submit'])) {
 
 		for ($r=0; $r <count($_POST['quantity']) ; $r++) { 
 			if(empty($_POST['products'][$r]) || empty($_POST['price'][$r]) || empty($_POST['quantity'][$r])) {
-					header("Location: supplierbill.php?msg=empty_data");
-					die();
-				}
+				header("Location: supplierbill.php?msg=empty_data");
+				die();
+			}
 		}
 
 
@@ -46,6 +46,8 @@ if (isset($_POST['submit'])) {
 			// $query1->execute();
 				header("location: product.php?msg=data_exist&pro=$product_name");die();
 			}
+			$total=bcmul($quantity_bill, $price);
+			$total_of_bill+=$total;
 			// echo "dddd";
 			//insert info about this bill in table
 			$sql="INSERT INTO bill_products VALUES ('',?,?,?,?,?,?)";
@@ -67,7 +69,12 @@ if (isset($_POST['submit'])) {
 			$query3=$conn->prepare("UPDATE products SET quantity= $quantity + $quantity_bill,original_price='$price' WHERE supplier_id=$supplier_id_bill
 				&& id=$product_id");
 			$query3->execute();
-			$conn->commit(); 
+			$update_debts=$conn->prepare("UPDATE suppliers SET debts= debts+$total_of_bill WHERE id=$supplier_id_bill");
+			$update_debts->execute();
+			$update_pay=$conn->prepare("UPDATE pay_supplier SET elbaky=elbaky+$total_of_bill WHERE supplier_id=$supplier_id_bill");
+			$update_pay->execute();
+			$conn->commit();
+			
 
 		} catch (Exception $e) {
 			$conn->rollBack();

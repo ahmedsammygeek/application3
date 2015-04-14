@@ -35,18 +35,18 @@
 				?>
 
 				<!-- form start -->
-					<form role="form" action="addsupplierbill.php" method="post" >
+					<form role="form" action="addbill.php" method="post" >
 					<div class="box-body">
 							<button  name="add_more" class="btn btn-sucess pull-right">اضافة جديد</button>
-							<label for="exampleInputPassword1">المورد :</label>
+							<label for="exampleInputPassword1">العميل :</label>
 							<div class="form-group">		
-								<select name="supplier" id="" class="btn btn-default dropdown-toggle">
+								<select name="client" id="" class="btn btn-default dropdown-toggle">
 									<?php require 'connection.php';
-									$sql="SELECT * FROM suppliers";
+									$sql="SELECT * FROM clients";
 									$query=$conn->query($sql);
 									while ($result=$query->fetch(PDO::FETCH_ASSOC)) {
 										extract($result);
-										echo "<option value='$id'>$supplier_name</option>";
+										echo "<option value='$id'>$client_name</option>";
 									} ?>
 
 								</select>
@@ -86,7 +86,7 @@
 
 					<div class="box-footer">
 
-						<button type="submit" name="submit" class="btn btn-primary">اضف الفاتورة الموردة</button>
+						<button type="submit" name="submit" class="btn btn-primary">اضف الفاتورة</button>
 					</div>
 				</form>
 			</div><!-- /.box -->

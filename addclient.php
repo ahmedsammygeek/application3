@@ -20,7 +20,7 @@ if (isset($_POST['submit'])) {
 //connection db (application)
 require 'connection.php';
 //insert data about client in client table 
-$sql="INSERT INTO clients VALUES('',?,?,?,?,NOW()) ";
+$sql="INSERT INTO clients VALUES('',?,?,?,?) ";
 $query=$conn->prepare($sql);
 $query->bindValue(1,$name,PDO::PARAM_STR);
 $query->bindValue(2,$address,PDO::PARAM_STR);

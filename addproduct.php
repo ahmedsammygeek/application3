@@ -21,10 +21,10 @@ foreach ($inputs as $key => $value) {
 }
 // connection with db (application)
 require 'connection.php';
-$check=$conn->query("SELECT * FROM products WHERE product_name='$name'");
-$num = $check->rowCount();
-if ($num != 0) {
-	header("location: product.php?msg=data_exist&pro=$name");die();
+$check=$conn->query("SELECT product_name FROM products WHERE product_name='$name' ");
+if ($check->rowCount()) {
+	
+header("location: product.php?msg=data_exist&pro=$name");die();
 }
 //insert info about data in products table
 $sql="INSERT INTO products VALUES('',?,?,?,?,?) ";
