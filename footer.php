@@ -61,15 +61,14 @@ $.ajax({
   data: { product_id:product_id , client_id:client_id },
   success: function(result){
     var json = JSON.parse(result);
-      alert(result);
-    alert(json['price']);
+    //   alert(result);
+    // alert(json['price']);
     //prev().prev().children('input#price').val(json['price'])
       if(json['type'] == 1) {
         type = "سعر مميز لعميل";
       }
       else {
         type = "سعر البيع العام";
-
       }
       thatSelect.parent().parent().find('label.price_type').remove();
       thatSelect.parent().parent().find('input#price').after('<label class="price_type">'+ type +'</label>');
