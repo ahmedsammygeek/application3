@@ -73,7 +73,7 @@
 							<td class=''>$address</td>
 							<td class=''>$phone</td>
 							<td class=''>$debts</td>
-							<td class=''><a href='deletesupplier.php?id=$id'><button class='btn btn-danger btn-sm'>حذف</button></a>
+							<td class=''>
 							<a href='editsupplier.php?id=$id'><button class='btn btn-warning btn-sm'>تعديل</button></a></td>
 							</tr>";
 							$i++;

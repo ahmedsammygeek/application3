@@ -40,7 +40,7 @@ if (isset($_POST['submit'])) {
 // 	header("location: bill.php?msg=empty_data");die();
 // }
 //insert data of price1 in row
-array_push($total_of_bill, $total);
+// array_push($total_of_bill, $total);
 			// var_dump($total_of_bill);die();
 
 			$query1=$conn->prepare("INSERT INTO bills VALUES ('',?,?,?,?,?,?,?) ");
@@ -57,9 +57,9 @@ array_push($total_of_bill, $total);
 
 			$update=$conn->prepare("UPDATE products SET quantity=quantity - $quantity WHERE id='$product' ");
 			$update->execute();
-			$update_debts=$conn->prepare("UPDATE clients SET deserved= deserved+$total_of_bill WHERE id=$client");
+			$update_debts=$conn->prepare("UPDATE clients SET deserved= deserved+$total WHERE id=$client");
 			$update_debts->execute();
-			$update_pay=$conn->prepare("UPDATE pay_client SET elbaky=elbaky+$total_of_bill WHERE client_id=$client");
+			$update_pay=$conn->prepare("UPDATE pay_client SET elbaky=elbaky+$total WHERE client_id=$client");
 			$update_pay->execute();
 			$conn->commit();
 			
@@ -71,8 +71,8 @@ array_push($total_of_bill, $total);
 
 	}// end of for (vars)
 
-	var_dump($total_of_bill); die();
-	header("location: bill.php?msg=data_inserted");die();
+	// var_dump($total_of_bill); die();
+	header("location: showbill.php?msg=data_inserted");die();
 } // end of if isset
 
 

@@ -22,7 +22,7 @@ if (isset($_POST['submit'])) {
 	if ($num == 1) {
 		$_SESSION['logged']='true';
 
-		header("location: showproduct.php?id=$id");
+		header("location: alerts.php?id=$id");
 		die();
 	}
 	else

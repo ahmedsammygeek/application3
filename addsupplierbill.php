@@ -9,7 +9,7 @@ if (isset($_POST['submit'])) {
 	$supplier_id_bill=$_POST['supplier'];
 	$date=date("Y-m-d");
 
-	$total_of_bill=0;
+	
 	for ($i=0; $i <count($_POST['quantity']) ; $i++) { 
 		$product_id=$_POST['products'][$i];
 		$quantity_bill=htmlspecialchars($_POST['quantity'][$i]);
@@ -47,7 +47,6 @@ if (isset($_POST['submit'])) {
 				header("location: product.php?msg=data_exist&pro=$product_name");die();
 			}
 			$total=bcmul($quantity_bill, $price);
-			$total_of_bill+=$total;
 			// echo "dddd";
 			//insert info about this bill in table
 			$sql="INSERT INTO bill_products VALUES ('',?,?,?,?,?,?)";
@@ -69,9 +68,9 @@ if (isset($_POST['submit'])) {
 			$query3=$conn->prepare("UPDATE products SET quantity= $quantity + $quantity_bill,original_price='$price' WHERE supplier_id=$supplier_id_bill
 				&& id=$product_id");
 			$query3->execute();
-			$update_debts=$conn->prepare("UPDATE suppliers SET debts= debts+$total_of_bill WHERE id=$supplier_id_bill");
+			$update_debts=$conn->prepare("UPDATE suppliers SET debts= debts+$total WHERE id=$supplier_id_bill");
 			$update_debts->execute();
-			$update_pay=$conn->prepare("UPDATE pay_supplier SET elbaky=elbaky+$total_of_bill WHERE supplier_id=$supplier_id_bill");
+			$update_pay=$conn->prepare("UPDATE pay_supplier SET elbaky=elbaky+$total WHERE supplier_id=$supplier_id_bill");
 			$update_pay->execute();
 			$conn->commit();
 			
@@ -80,7 +79,8 @@ if (isset($_POST['submit'])) {
 			$conn->rollBack();
 		}
 
-	}	
+	}	// end of for loop
+	header("location: showsupplierbill.php?msg=data_inserted");die();
 } // end of the if of check if the buttun of form clicked
 
 

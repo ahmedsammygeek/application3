@@ -68,7 +68,7 @@
 									<tfoot>
 										<tr role="row">
 											<th>المسلسل</th>
-											<th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 189px;">اسم المورد</th>
+											<th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending" style="width: 189px;">اسم العميل</th>
 											<th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 277px;">العنوان</th>
 											<th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 248px;">ارقام الهواتف</th><th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 159px;">المديونيه عليه</th><th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 115px;">خيارات</th>
 										</tr>
@@ -86,7 +86,7 @@
 											<td class=''>$address</td>
 											<td class=''>$phone</td>
 											<td class=''>$deserved</td>
-											<td class=''><a href='deleteclient.php?id=$id'><button class='btn btn-danger btn-sm'>حذف</button></a>
+											<td class=''>
 											<a href='editclient.php?id=$id'><button class='btn btn-warning btn-sm'>تعديل</button></a></td>
 											</tr>";
 											$i++;
