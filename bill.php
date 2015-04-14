@@ -35,35 +35,36 @@
 				?>
 
 				<!-- form start -->
-					<form role="form" action="addbill.php" method="post" >
+				<form role="form" action="addbill.php" method="post" >
 					<div class="box-body">
-							<button  name="add_more" class="btn btn-sucess pull-right">اضافة جديد</button>
-							<label for="exampleInputPassword1">العميل :</label>
-							<div class="form-group">		
-								<select name="client" id="" class="btn btn-default dropdown-toggle">
-									<?php require 'connection.php';
-									$sql="SELECT * FROM clients";
-									$query=$conn->query($sql);
-									while ($result=$query->fetch(PDO::FETCH_ASSOC)) {
-										extract($result);
-										echo "<option value='$id'>$client_name</option>";
-									} ?>
+						<button  name="add_more" class="btn btn-sucess pull-right">اضافة جديد</button>
+						<label for="exampleInputPassword1">العميل :</label>
+						<div class="form-group">		
+							<select name="client" id="" class="btn btn-default dropdown-toggle">
+								<?php require 'connection.php';
+								$sql="SELECT * FROM clients";
+								$query=$conn->query($sql);
+								while ($result=$query->fetch(PDO::FETCH_ASSOC)) {
+									extract($result);
+									echo "<option value=''></option>";
+									echo "<option value='$id'>$client_name</option>";
+								} ?>
 
-								</select>
-							</div>
-							
-							<div class="copy row">
-								<div class="form-group col-md-4">
+							</select>
+						</div>
+						
+						<div class="copy row">
+							<div class="form-group col-md-4">
 								<label >الكمية</label>
 								<input type="number" name="quantity[]" class="form-control"  placeholder="الكمية المستلمة">
 							</div>
 							<div class="form-group col-md-4">
 								<label for="exampleInputPassword1">السعر</label>
-								<input type="text" name="price[]" class="form-control"  placeholder="سعر الشراء">
+								<input type="text" name="price[]"  id="price" class="form-control"  placeholder="سعر الشراء">
 							</div>
 							<label >المنتج :</label>
 							<div class="form-group col-md-4">	
-								<select name="products[]"  class="produtcs  form-control">
+								<select name="products[]" id="products"  class="produtcs  form-control">
 									<?php 
 									$sql="SELECT * FROM products";
 									$query=$conn->query($sql);
@@ -75,7 +76,7 @@
 
 								</select>
 							</div>
-							</div>
+						</div>
 
 
 						
