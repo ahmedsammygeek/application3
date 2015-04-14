@@ -4,7 +4,7 @@
 		<div class="col-xs-12">
 			<div class="box">
 				<div class="box-header">
-					<h3 class="box-title">فواتير سداد الموردين</h3>  
+					<h3 class="text-center">فواتير سداد الموردين</h3>  
 					<input class="btn btn-default btn-block btn-flat" type="button" value=" كشف حساب مورد" onclick="window.print()" >
 
 				</div><!-- /.box-header -->
@@ -43,7 +43,7 @@
 									extract($result2);
 									echo "<tr class='even'>
 									<td>$i</td>
-									<td class=''><a href='supplier_pay.php?id=$supplier_id'>$supplier_name</a></td>
+									<td class=''>$supplier_name</td>
 									<td class=''>$money</td>
 									<td class=''>$debts</td>
 									<td class=''>$date</td>

@@ -4,10 +4,32 @@
 		<div class="col-xs-12">
 			<div class="box">
 				<div class="box-header">
-					<h3 class="text-center box-title" >فواتير العملاء</h3>                                    
+					<img  class="box-title" src="img/credit/paypal.png" alt="">
+
+					<?php
+					if (isset($_GET['id'])) {
+						$msg=$_GET['id'];
+						require 'connection.php';
+						$sql="SELECT * FROM bills WHERE bill_num=$msg";
+						$query=$conn->query($sql);
+						$result=$query->fetch(PDO::FETCH_ASSOC);
+						extract($result);
+						$query2=$conn->query("SELECT * FROM clients WHERE id=$client_id");
+						$result2=$query2->fetch(PDO::FETCH_ASSOC);
+						extract($result2);	
+						echo "<h4 class='text-right'> تاريخ الفاتورة : $date " . "<br><br>" . " رقم الفاتورة : $bill_num " . "<br><br>" . "اسم العميل : $client_name" . "<br><br>" . "المبلغ المتبقي : $deserved <h4>" ;
+						
+					 }
+
+
+					?>
+
+
+
 				</div><!-- /.box-header -->
-				
 				<div class="box-body table-responsive">
+					<input class="btn btn-default btn-block btn-flat" type="button" value="بيان مبيعات" onclick="window.print()" >
+
 					<div id="example1_wrapper" class="dataTables_wrapper form-inline" role="grid">
 						<div class="row">
 							<div class="col-xs-6">
@@ -27,18 +49,11 @@
 							</thead>
 							<tbody role="alert" aria-live="polite" aria-relevant="all"><tr class="odd">
 								<?php
-								if ($_GET['id']) {
-									$id=$_GET['id'];
-								} 
-								require 'connection.php'; 
-								$sql="SELECT * FROM bills WHERE bill_num=$id";
-								$query=$conn->query($sql);
+								$sql="SELECT * FROM bills WHERE bill_num=$msg";
+								$query=$conn->query($sql); 
 								$i=1;
 								while ($result=$query->fetch(PDO::FETCH_ASSOC)) {
 									extract($result);
-									$query2=$conn->query("SELECT client_name FROM clients WHERE id=$client_id");
-									$result2=$query2->fetch(PDO::FETCH_ASSOC);
-									extract($result2);
 									$query3=$conn->query("SELECT product_name FROM products WHERE id=$product_id");
 									$result3=$query3->fetch(PDO::FETCH_ASSOC);
 									extract($result3);
@@ -48,11 +63,13 @@
 									<td class=''>$quantity</td>
 									<td class=''>$price</td>
 									<td class=''>$total</td>
-						
+
 									</tr>";
 									$i++;
 								}
+								
 								?>
+
 							</tbody>
 						</table>
 

@@ -4,16 +4,18 @@
 		<div class="col-xs-12">
 			<div class="box">
 				<div class="box-header">
-					<h3 class="box-title">فواتير العملاء</h3>                                    
+					<h3 class="text-center">فواتير العملاء</h3>                                    
 				</div><!-- /.box-header -->
 				
 				<div class="box-body table-responsive">
+					<input class="btn btn-default btn-block btn-flat" type="button" value="بيان مبيعات" onclick="window.print()" >
+
 					<div id="example1_wrapper" class="dataTables_wrapper form-inline" role="grid">
 						<div class="row">
 							<div class="col-xs-6">
-								</div>
-					<div class="col-xs-6">
-				</div>
+							</div>
+							<div class="col-xs-6">
+							</div>
 						</div>
 						<table id="example1" class="table table-bordered table-striped dataTable" aria-describedby="example1_info">
 							<thead>
@@ -26,16 +28,15 @@
 									<th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 115px;">الاجمالى</th>
 									<th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 115px;">رقم الفانورة</th>
 									<th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 159px;">التاريخ</th>
-									<th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 115px;">خيارات</th>
 								</tr>
 							</thead>
 							<tbody role="alert" aria-live="polite" aria-relevant="all"><tr class="odd">
 								<?php
 								if (isset($_GET['id'])) {
-								$id=$_GET['id'];
+									$id=$_GET['id'];
 								}
 
-								 require 'connection.php'; 
+								require 'connection.php'; 
 								$sql="SELECT * FROM bills WHERE client_id=$id ";
 								$query=$conn->query($sql);
 								$i=1;
@@ -49,15 +50,14 @@
 									extract($result3);
 									echo "<tr class='even'>
 									<td>$i</td>
-									<td class=''><a href='client_bill.php?id=$client_id'>$client_name</a></td>
+									<td class=''>$client_name</td>
 									<td class=''>$product_name</td>
 									<td class=''>$quantity</td>
 									<td class=''>$price</td>
 									<td class=''>$total</td>
 									<td class=''><a href='printbill.php?id=$bill_num'>$bill_num</a></td>
 									<td class=''>$date</td>
-									<td class=''><a href='deletebill.php?id=$id'><button class='btn btn-danger btn-sm'>حذف</button></a>
-									</td>
+									
 									</tr>";
 									$i++;
 								}
