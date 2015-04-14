@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 11, 2015 at 03:56 PM
+-- Generation Time: Apr 14, 2015 at 05:12 PM
 -- Server version: 5.6.17
 -- PHP Version: 5.5.12
 
@@ -31,16 +31,14 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `name` varchar(200) NOT NULL,
   `password` varchar(200) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
 -- Dumping data for table `admin`
 --
 
 INSERT INTO `admin` (`id`, `name`, `password`) VALUES
-(3, 'alaa', '9f501154b7e5872e75704103a87b10317e86c5ac'),
-(5, 'Ø¹Ù„Ø§Ø¡', '80e9daaabc8dee9b4b51ee78c6f269032125950c'),
-(6, 'amira', '7702eed698fe0c88fa00819ff05bfb5f910b441e');
+(1, 'alaa', '9f501154b7e5872e75704103a87b10317e86c5ac');
 
 -- --------------------------------------------------------
 
@@ -58,28 +56,16 @@ CREATE TABLE IF NOT EXISTS `bills` (
   `bill_num` int(11) NOT NULL,
   `total` decimal(10,2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=48 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `bills`
 --
 
 INSERT INTO `bills` (`id`, `client_id`, `product_id`, `quantity`, `date`, `price`, `bill_num`, `total`) VALUES
-(33, 16, 8, 100, '2015-09-04', '1.00', 1, '100.00'),
-(34, 16, 9, 100, '2015-09-04', '2.00', 1, '200.00'),
-(35, 16, 11, 100, '2015-09-04', '3.00', 1, '300.00'),
-(36, 16, 8, 100, '2015-09-04', '1.00', 2, '100.00'),
-(37, 16, 9, 100, '2015-09-04', '2.00', 2, '200.00'),
-(38, 16, 11, 100, '2015-09-04', '3.00', 2, '300.00'),
-(39, 16, 8, 100, '2015-09-04', '1.00', 2, '100.00'),
-(40, 16, 9, 100, '2015-09-04', '2.00', 2, '200.00'),
-(41, 16, 11, 100, '2015-09-04', '3.00', 2, '300.00'),
-(42, 16, 8, 100, '2015-09-04', '1.00', 2, '100.00'),
-(43, 16, 8, 100, '2015-09-04', '1.00', 2, '100.00'),
-(44, 16, 8, 100, '2015-09-04', '1.00', 2, '100.00'),
-(45, 16, 8, 100, '2015-09-04', '1.00', 2, '100.00'),
-(46, 16, 9, 100, '2015-09-04', '2.00', 2, '200.00'),
-(47, 16, 11, 100, '2015-09-04', '3.00', 2, '300.00');
+(1, 1, 1, 80, '2015-04-14', '1000.00', 8317, '80000.00'),
+(2, 1, 1, 40, '2015-04-14', '1000.00', 14519, '40000.00'),
+(3, 1, 2, 40, '2015-04-14', '1000.00', 14519, '40000.00');
 
 -- --------------------------------------------------------
 
@@ -94,15 +80,21 @@ CREATE TABLE IF NOT EXISTS `bill_products` (
   `price` decimal(10,2) NOT NULL,
   `supplier_id` int(11) NOT NULL,
   `time` date NOT NULL,
+  `bill_num` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=47 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `bill_products`
 --
 
-INSERT INTO `bill_products` (`id`, `product_id`, `quantity`, `price`, `supplier_id`, `time`) VALUES
-(46, 35, 100, '3.00', 13, '0000-00-00');
+INSERT INTO `bill_products` (`id`, `product_id`, `quantity`, `price`, `supplier_id`, `time`, `bill_num`) VALUES
+(1, 1, 40, '1000.00', 1, '2015-04-14', 989),
+(2, 1, 40, '1000.00', 1, '2015-04-14', 424),
+(3, 1, 40, '1000.00', 1, '2015-04-14', 46),
+(4, 1, 40, '1000.00', 1, '2015-04-14', 344),
+(5, 1, 40, '1000.00', 1, '2015-04-14', 708),
+(6, 1, 40, '1000.00', 1, '2015-04-14', 346);
 
 -- --------------------------------------------------------
 
@@ -117,16 +109,16 @@ CREATE TABLE IF NOT EXISTS `clients` (
   `address` text NOT NULL,
   `deserved` decimal(10,3) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `clients`
 --
 
 INSERT INTO `clients` (`id`, `client_name`, `phone`, `address`, `deserved`) VALUES
-(16, 'Ø§Ø­Ù…Ø¯ Ø³Ø§Ù…ÙŠ', 'Ø·Ù„Ø®Ø§', '01091215411', '-2100.000'),
-(17, 'Ø§ÙŠÙ‡ Ù…ØµØ·ÙÙ‰', 'Ù…Ø´ Ø¹Ø§Ø±Ù Ø§ÙŠÙ‡', '0121111421', '500.000'),
-(18, 'Ø¹Ø¨Ø¯ Ø§Ù„ÙØªØ§Ø­ Ø§Ø³Ù…Ø§Ø¹ÙŠÙ„', 'Ù„Ø¬Ù…Ù‡ÙˆØ±ÙŠØ© ', '0012121444', '60.000');
+(1, 'zizo', 'saft torab', '01099944511', '161000.000'),
+(2, 'bedo', 'gmhorya', '01201212454', '1000.000'),
+(3, '3oon', '6 october', '0012121444', '1000.000');
 
 -- --------------------------------------------------------
 
@@ -141,16 +133,7 @@ CREATE TABLE IF NOT EXISTS `pay_client` (
   `date` date NOT NULL,
   `elbaky` decimal(10,2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=30 ;
-
---
--- Dumping data for table `pay_client`
---
-
-INSERT INTO `pay_client` (`id`, `client_id`, `money`, `date`, `elbaky`) VALUES
-(25, 16, '100.00', '1212-12-12', '-2000.00'),
-(27, 18, '100.00', '1515-12-15', '160.00'),
-(28, 17, '100.00', '2222-02-22', '600.00');
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -165,7 +148,14 @@ CREATE TABLE IF NOT EXISTS `pay_supplier` (
   `date` date NOT NULL,
   `elbaky` decimal(10,2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `pay_supplier`
+--
+
+INSERT INTO `pay_supplier` (`id`, `supplier_id`, `money`, `date`, `elbaky`) VALUES
+(1, 1, '120000.00', '2015-04-14', '281000.00');
 
 -- --------------------------------------------------------
 
@@ -181,15 +171,16 @@ CREATE TABLE IF NOT EXISTS `products` (
   `quantity` int(11) NOT NULL,
   `product_price` decimal(10,3) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=37 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `products`
 --
 
 INSERT INTO `products` (`id`, `product_name`, `supplier_id`, `original_price`, `quantity`, `product_price`) VALUES
-(35, 'Ø³Ø±Ù†Ø¬Ø©', '13', '3.000', 150, '1.200'),
-(36, 'Ø³Ø±Ù†Ø¬Ø©1', '14', '1.500', 100, '1.600');
+(1, 'applications', '1', '1000.000', 220, '1100.000'),
+(2, 'website', '2', '1500.000', 60, '1700.000'),
+(3, 'design', '3', '500.000', 100, '700.000');
 
 -- --------------------------------------------------------
 
@@ -204,16 +195,16 @@ CREATE TABLE IF NOT EXISTS `suppliers` (
   `phone` varchar(100) NOT NULL,
   `debts` decimal(10,2) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `suppliers`
 --
 
 INSERT INTO `suppliers` (`id`, `supplier_name`, `address`, `phone`, `debts`) VALUES
-(13, 'Ø¹Ù„Ø§Ø¡ Ø§Ù„Ø¬Ù†Ø¯ÙŠ', 'Ø§Ù„Ù…Ø­Ù„Ù‡', '01212542100', '-104.00'),
-(14, 'Ø§Ù…ÙŠØ±Ù‡ Ø¹Ø§Ø¯Ù„', 'Ù†ÙˆÙŠØ¨Ø¹', '0101212544', '1780.75'),
-(15, 'Ø²ÙŠØ§Ø¯ Ø§Ù„Ø´Ø§Ø¨ÙˆØ±Ù‰', 'ØµÙØ·', '01400114545', '1000.00');
+(1, 'alaa', 'mahalla', '01000021221', '161000.00'),
+(2, 'ahmed', 'mansoura', '01212542100', '1000.00'),
+(3, 'amira', 'nweba3', '01201212454', '1000.00');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
