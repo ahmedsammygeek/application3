@@ -10,7 +10,7 @@
 						$query4=$conn->query("SELECT supplier_name FROM suppliers WHERE id=$id");
 						$result4=$query4->fetch(PDO::FETCH_ASSOC);
 						extract($result4);
-						echo "<h3 class='box-title'>فواتير المورد $supplier_name </h3>";
+						echo "<h3 class='text-center'>فواتير المورد $supplier_name </h3>";
 
 					} ?>
 					<input class="btn btn-default btn-block btn-flat" type="button" value="بيان الموردين" onclick="window.print()">

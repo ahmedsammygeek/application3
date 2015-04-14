@@ -98,7 +98,7 @@
 									<td class=''>$price</td>
 									<td class=''>$time</td>
 									<td class=''><a href='deletesupplierbill.php?id=$id'><button class='btn btn-danger btn-sm'>حذف</button></a>
-									<a href='editsupplierbill.php?id=$id'><button class='btn btn-warning btn-sm'>تعديل</button></a></td>
+									</td>
 									</tr>";
 									$i++;
 								}
