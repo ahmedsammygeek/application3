@@ -83,8 +83,8 @@
 											echo "<tr class='even'>
 											<td>$i</td>
 											<td class='sorting_1'>$client_name</td>
-											<td class=''>$address</td>
 											<td class=''>$phone</td>
+											<td class=''>$address</td>
 											<td class=''>$deserved</td>
 											<td class=''>
 											<a href='editclient.php?id=$id'><button class='btn btn-warning btn-sm'>تعديل</button></a></td>
