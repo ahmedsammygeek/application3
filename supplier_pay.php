@@ -4,12 +4,15 @@
 		<div class="col-xs-12">
 			<div class="box">
 				<div class="box-header">
+					<img  class="box-title" src="img/credit/paypal.png" alt=""><br>
+
 					<h3 class="text-center">فواتير سداد الموردين</h3>  
-					<input class="btn btn-default btn-block btn-flat" type="button" value=" كشف حساب مورد" onclick="window.print()" >
 
 				</div><!-- /.box-header -->
 				
 				<div class="box-body table-responsive">
+					<input class="btn btn-default btn-block btn-flat" type="button" value=" كشف حساب مورد" onclick="window.print()" >
+
 					<div id="example1_wrapper" class="dataTables_wrapper form-inline" role="grid">
 						<div class="row">
 							<div class="col-xs-6">

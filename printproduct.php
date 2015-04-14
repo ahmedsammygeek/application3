@@ -4,6 +4,8 @@
 		<div class="col-xs-12">
 			<div class="box">
 				<div class="box-header">
+					<img  class="box-title" src="img/credit/paypal.png" alt="">
+
 					<h3 class="box-title"></h3>  
 					<input class="btn btn-default btn-block btn-flat" type="button" value="معلومات عن النتجات" onclick="window.print()" >
 
@@ -27,7 +29,7 @@
 									<th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Platform(s): activate to sort column ascending" style="width: 248px;">السعر الاصلي</th>
 									<th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending" style="width: 159px;">الكمية</th>
 									<th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="CSS grade: activate to sort column ascending" style="width: 115px;">سعر البيع</th>
-								
+									
 								</tr>
 							</thead>
 

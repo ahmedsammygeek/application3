@@ -8,7 +8,6 @@
 				</div><!-- /.box-header -->
 				
 				<div class="box-body table-responsive">
-					<input class="btn btn-default btn-block btn-flat" type="button" value="بيان مبيعات" onclick="window.print()" >
 
 					<div id="example1_wrapper" class="dataTables_wrapper form-inline" role="grid">
 						<div class="row">

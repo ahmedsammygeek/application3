@@ -4,7 +4,9 @@
 		<div class="col-xs-12">
 			<div class="box">
 				<div class="box-header">
-					<h3 class="box-title">فواتير سداد العملاء</h3>  
+					<img  class="box-title" src="img/credit/paypal.png" alt="">
+
+					<h3 class="text-center">فواتير سداد العملاء</h3>  
 					<div class="row">	
 						<div class="col-md-8">
 							
@@ -14,10 +16,11 @@
 				</div><!-- /.box-header -->
 				
 				<div class="box-body table-responsive">
+					<input class="btn btn-default btn-block btn-flat" type="button" value="كشف حساب عميل" onclick="window.print()" >
+
 					<div id="example1_wrapper" class="dataTables_wrapper form-inline" role="grid">
 						<div class="row">
 							<div class="col-xs-6">
-								<input class="btn btn-default btn-block btn-flat" type="button" value="كشف حساب عميل" onclick="window.print()" >
 
 							</div>
 							<div class="col-xs-6">

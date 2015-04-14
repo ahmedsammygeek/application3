@@ -4,6 +4,8 @@
 		<div class="col-xs-12">
 			<div class="box">
 				<div class="box-header">
+					<img  class="box-title" src="img/credit/paypal.png" alt="">
+
 					<?php if (isset($_GET['id'])) {
 						$id=$_GET['id'];
 						require 'connection.php'; 
@@ -13,12 +15,13 @@
 						echo "<h3 class='text-center'>فواتير المورد $supplier_name </h3>";
 
 					} ?>
-					<input class="btn btn-default btn-block btn-flat" type="button" value="بيان الموردين" onclick="window.print()">
 
 
 				</div><!-- /.box-header -->
 				
-				<div class="box-body table-responsive">
+				<div class="box-body table-responsive" dir="rtl">
+					<input class="btn btn-default btn-block btn-flat"  type="button" value="بيان الموردين" onclick="window.print()">
+
 					<div id="example1_wrapper" class="dataTables_wrapper form-inline" role="grid">
 						<div class="row">
 							<div class="col-xs-6">
@@ -27,8 +30,8 @@
 
 							</div>
 						</div>
-						<table id="example1" class="table table-bordered table-striped dataTable" aria-describedby="example1_info">
-							<thead>
+						<table id="example1"  class="table table-bordered table-striped dataTable" aria-describedby="example1_info">
+							<thead dir="rtl">
 								<tr role="row">
 									<th>المسلسل</th>
 									<th class="sorting" role="columnheader" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending" style="width: 277px;">المنتج المشترى</th>
